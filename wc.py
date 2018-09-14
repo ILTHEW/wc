@@ -26,15 +26,12 @@ def Word_count(args):  # 统计单词数
         dictResult = {}
 
         for line in f.readlines():
-            listMatch = re.findall('[a-zA-Z]+', line.lower())  # remember to lower the letters
+            listMatch = re.findall('[a-zA-Z]+', line.lower())
             # Count
             for eachLetter in listMatch:
                 eachLetterCount = len(re.findall(eachLetter, line.lower()))
                 dictResult[eachLetter] = dictResult.get(eachLetter, 0) + eachLetterCount
-
-        # Sort the result
         result = sorted(dictResult.items(), key=lambda d: d[1], reverse=True)
-
     return result
 
 
@@ -50,7 +47,7 @@ def Character_count(args):  # 统计字符数
 if args.line:  # 行数
     print('line：',  Line_count(args.line))
 if args.word:  # 单词出现数目
-    words =     print('word：', Word_count(args.word))
+    print('word：', Word_count(args.word))
 if args.char:  ##字符数
     print('char：', Character_count(args.char))
 
